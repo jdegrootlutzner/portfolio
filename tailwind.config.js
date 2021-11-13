@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  purge: {
+    content: ["*.html", "*/*.html"],
+    safelist: ['btn',]
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
