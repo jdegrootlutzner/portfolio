@@ -9,7 +9,20 @@ module.exports = {
       trap: ['Trap']
 
     },
-    extend: {},
+    extend: {
+      colors: {
+        'off-black': '#685A4D',
+        'poloroid-dark': '#BFBFBF',
+        'generic-blue': '#0000FF'
+
+      },
+      margin: {
+        'nav': '38rem',
+      },
+      maxWidth: {
+        'xxs': '14rem',
+      }
+    },
   },
   variants: {
     extend: {},
