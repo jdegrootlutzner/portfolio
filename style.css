@@ -13,6 +13,24 @@
       src: url("/assets/fonts/Trap-Bold.woff") format("woff"), url("/assets/fonts/Trap-Bold.ttf")  format("truetype");
       font-weight: 700;
   }
+  #preview {
+    display: none;
+  }
+
+
+  @keyframes project-preview {
+    0% {bottom: -8rem;}
+    100% {bottom: 0px;}
+  }
+  #projects:hover~#preview{
+    display: flex;
+    animation-name: project-preview;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+  }
+
 }
 
 @layer utilities {

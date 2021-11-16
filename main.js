@@ -12,3 +12,5 @@ FlexMasonry.init('.grid',
             'min-width: 576px': 1,
         },
     });
+
+
