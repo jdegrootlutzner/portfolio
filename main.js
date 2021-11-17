@@ -1,5 +1,5 @@
 import FlexMasonry from './assets/home/flexmasonry';
-FlexMasonry.init('.grid',
+FlexMasonry.init('.masonry-grid',
     { responsive: true,
         /*
         * A list of how many columns should be shown at different responsive

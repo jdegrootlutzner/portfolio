@@ -14,7 +14,8 @@ module.exports = {
         'off-black': '#685A4D',
         'poloroid-dark': '#BFBFBF',
         'generic-blue': '#0000FF',
-        'generic-yellow': '#FFFF00'
+        'generic-yellow': '#FFFF00',
+        'black-2F': '#2F2F2F'
 
       },
       margin: {
