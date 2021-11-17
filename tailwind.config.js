@@ -13,7 +13,8 @@ module.exports = {
       colors: {
         'off-black': '#685A4D',
         'poloroid-dark': '#BFBFBF',
-        'generic-blue': '#0000FF'
+        'generic-blue': '#0000FF',
+        'generic-yellow': '#FFFF00'
 
       },
       margin: {

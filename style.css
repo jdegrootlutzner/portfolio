@@ -19,7 +19,7 @@
     0% {bottom: -8rem;}
     100% {bottom: 0px;}
   }
-  #projects:hover~#preview{
+  #project-grid:hover~#preview{
     animation-name: project-preview;
     animation-duration: 500ms;
     animation-iteration-count: 1;
