@@ -26,7 +26,7 @@
       
 
       <!-- Hero -->
-      <section class=" relative mt-20 mb-96">
+      <section class=" relative mt-20  mb-nav ">
         <img src="/assets/home/doodle-box-md.png"  class="hidden sm:block absolute top-0 h-full w-full px-3 " alt="">
         <img src="/assets/home/doodle-box.png"  class="sm:hidden absolute top-0 h-full w-full px-1" alt="">
 
@@ -59,105 +59,132 @@
           </div>
           <img class="absolute w-60 top-2" src="/assets/home/projects.png" alt="Projects:">
         </div>
-   
+        <!-- style="background-image: url('/printer-page.jpg');" -->
       <div id="project-grid" 
-          class="masonry-grid mx-4 md:mx-0 font-trap font-bold bg-repeat shadow-inner " 
-          style="background-image: url('/printer-page.jpg');">
-        <div class="masonry-item " 
+          class="masonry-grid mx-4 md:mx-0 font-trap font-bold bg-repeat shadow-inner ">
+        <div class="masonry-item pt-10" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
             solution="This is a solution">
-          <div class="mt-10 group opacity-95 hover:opacity-100 transform hover:-translate-y-2 transition-all duration-300 px-4 pt-8 m-2 bg-gradient-to-br from-white to-poloroid-dark border border-off-black rounded-2xl shadow-lg relative">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -top-2 -left-2 md:-top-1 md:-left-1 w-1/6 img-hor-vert" src="/assets/home/photo-holder.png" alt="">
-            <img class="border border-off-black" src="/assets/home/gallery.jpg" alt="">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -bottom-2 -right-2 md:-bottom-1 md:-right-1 w-1/6" src="/assets/home/photo-holder.png" alt="">
+          <div class="polaroid-card">
+            <img class="polaroid-holder-tl" src="/assets/home/photo-holder.png" alt="">
+            <img class="border border-off-black" src="/assets/home/pentridge-station.jpg" alt="">
+            <img class="polaroid-holder-br" src="/assets/home/photo-holder.png" alt="">
             <div class="h-24 ">
-            <p class="mt-2 text-2xl h-16 max-w-xxs">Cloud Under the Sea</p>
-            <p class="mr-4 text-right"> Painting, 2018</p>
+            <p class="polaroid-title">pentridgestation.com</p>
+            <p class="polaroid-subtitle"> RoR Web App, 2021</p>
             </div>
          </div>
         </div>
-        <div class="masonry-item " 
+        <div class="masonry-item" 
             onmouseover="updatePreview(this)"
-            problem="Can't whistle"
-            solution="Bought a whistle">
-          <div class="group opacity-95 hover:opacity-100 transform hover:-translate-y-2 transition-all duration-300 px-4 pt-8 m-2 bg-gradient-to-br from-white to-poloroid-dark border border-off-black rounded-2xl shadow-lg relative">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -top-2 -left-2 md:-top-1 md:-left-1 w-1/6 img-hor-vert" src="/assets/home/photo-holder.png" alt="">
-            <img class="border border-off-black" src="/assets/home/gallery.jpg" alt="">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -bottom-2 -right-2 md:-bottom-1 md:-right-1 w-1/6" src="/assets/home/photo-holder.png" alt="">
+            problem="This is a problem"
+            solution="This is a solution">
+          <div class="polaroid-card">
+            <img class="polaroid-holder-tl" src="/assets/home/photo-holder.png" alt="">
+            <img class="border border-off-black" src="/assets/home/privacy-video.jpg" alt="">
+            <img class="polaroid-holder-br" src="/assets/home/photo-holder.png" alt="">
             <div class="h-24 ">
-            <p class="mt-2 text-2xl h-16 max-w-xxs">Cloud Under the Sea</p>
-            <p class="mr-4 text-right"> Painting, 2018</p>
-            </div>
-        </div>
-        </div>
-        <div class="masonry-item " 
-            onmouseover="updatePreview(this)"
-            problem="Own a whistle"
-            solution="Became a referee">
-          <div class="group opacity-95 hover:opacity-100 transform hover:-translate-y-2 transition-all duration-300 px-4 pt-8 m-2 bg-gradient-to-br from-white to-poloroid-dark border border-off-black rounded-2xl shadow-lg relative">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -top-2 -left-2 md:-top-1 md:-left-1 w-1/6 img-hor-vert" src="/assets/home/photo-holder.png" alt="">
-            <img class="border border-off-black" src="/assets/home/gallery.jpg" alt="">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -bottom-2 -right-2 md:-bottom-1 md:-right-1 w-1/6" src="/assets/home/photo-holder.png" alt="">
-            <div class="h-24 ">
-            <p class="mt-2 text-2xl h-16 max-w-xxs">Cloud Under the Sea</p>
-            <p class="mr-4 text-right"> Painting, 2018</p>
+            <p class="polaroid-title">Digital Privacy Video</p>
+            <p class="polaroid-subtitle"> Video, 2019</p>
             </div>
          </div>
         </div>
-        <div class="masonry-item " 
+        <div class="masonry-item" 
             onmouseover="updatePreview(this)"
-            problem="Foul!"
-            solution="Red Card!">
-          <div class="group opacity-95 hover:opacity-100 transform hover:-translate-y-2 transition-all duration-300 px-4 pt-8 m-2 bg-gradient-to-br from-white to-poloroid-dark border border-off-black rounded-2xl shadow-lg relative">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -top-2 -left-2 md:-top-1 md:-left-1 w-1/6 img-hor-vert" src="/assets/home/photo-holder.png" alt="">
-            <img class="border border-off-black" src="/assets/home/gallery.jpg" alt="">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -bottom-2 -right-2 md:-bottom-1 md:-right-1 w-1/6" src="/assets/home/photo-holder.png" alt="">
+            problem="This is a problem"
+            solution="This is a solution">
+          <div class="polaroid-card">
+            <img class="polaroid-holder-tl" src="/assets/home/photo-holder.png" alt="">
+            <img class="border border-off-black" src="/assets/home/honeybis.jpg" alt="">
+            <img class="polaroid-holder-br" src="/assets/home/photo-holder.png" alt="">
             <div class="h-24 ">
-            <p class="mt-2 text-2xl h-16 max-w-xxs">Cloud Under the Sea</p>
-            <p class="mr-4 text-right"> Painting, 2018</p>
+            <p class="polaroid-title">honeybis.com</p>
+            <p class="polaroid-subtitle">E-Commerce Website, 2021</p>
             </div>
          </div>
         </div>
-        <div class="masonry-item " 
+        <div class="masonry-item" 
             onmouseover="updatePreview(this)"
-            problem="Dance too good"
-            solution="Dance too good :)">
-          <div class="group opacity-95 hover:opacity-100 transform hover:-translate-y-2 transition-all duration-300 px-4 pt-8 m-2 bg-gradient-to-br from-white to-poloroid-dark border border-off-black rounded-2xl shadow-lg relative">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -top-2 -left-2 md:-top-1 md:-left-1 w-1/6 img-hor-vert" src="/assets/home/photo-holder.png" alt="">
-            <img class="border border-off-black" src="/assets/home/gallery.jpg" alt="">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -bottom-2 -right-2 md:-bottom-1 md:-right-1 w-1/6" src="/assets/home/photo-holder.png" alt="">
+            problem="This is a problem"
+            solution="This is a solution">
+          <div class="polaroid-card">
+            <img class="polaroid-holder-tl" src="/assets/home/photo-holder.png" alt="">
+            <img class="border border-off-black" src="/assets/home/redial.jpg" alt="">
+            <img class="polaroid-holder-br" src="/assets/home/photo-holder.png" alt="">
             <div class="h-24 ">
-            <p class="mt-2 text-2xl h-16 max-w-xxs">Cloud Under the Sea</p>
-            <p class="mr-4 text-right"> Painting, 2018</p>
+            <p class="polaroid-title">Redial</p>
+            <p class="polaroid-subtitle"> Interactive Art Installation, 2018</p>
             </div>
          </div>
         </div>
-        <div class="masonry-item " 
+        <div class="masonry-item" 
             onmouseover="updatePreview(this)"
-            problem="Shoes too small"
-            solution="Cut holes for toe-room ">
-          <div class="group opacity-95 hover:opacity-100 transform hover:-translate-y-2 transition-all duration-300 px-4 pt-8 m-2 bg-gradient-to-br from-white to-poloroid-dark border border-off-black rounded-2xl shadow-lg relative">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -top-2 -left-2 md:-top-1 md:-left-1 w-1/6 img-hor-vert" src="/assets/home/photo-holder.png" alt="">
-            <img class="border border-off-black" src="/assets/home/gallery.jpg" alt="">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -bottom-2 -right-2 md:-bottom-1 md:-right-1 w-1/6" src="/assets/home/photo-holder.png" alt="">
+            problem="This is a problem"
+            solution="This is a solution">
+          <div class="polaroid-card">
+            <img class="polaroid-holder-tl" src="/assets/home/photo-holder.png" alt="">
+            <img class="border border-off-black w-full" src="/assets/home/citibikes.gif" alt="">
+            <img class="polaroid-holder-br" src="/assets/home/photo-holder.png" alt="">
             <div class="h-24 ">
-            <p class="mt-2 text-2xl h-16 max-w-xxs">Cloud Under the Sea</p>
-            <p class="mr-4 text-right"> Painting, 2018</p>
+            <p class="polaroid-title">Citibikes Data Analysis</p>
+            <p class="polaroid-subtitle"> R Project, 2017</p>
             </div>
          </div>
         </div>
-        <div class="masonry-item " 
+        <div class="masonry-item" 
             onmouseover="updatePreview(this)"
-            problem="I dont have any pizza"
-            solution="I made a pizza">
-          <div class="group opacity-95 hover:opacity-100 transform hover:-translate-y-2 transition-all duration-300 px-4 pt-8 m-2 bg-gradient-to-br from-white to-poloroid-dark border border-off-black rounded-2xl shadow-lg relative">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -top-2 -left-2 md:-top-1 md:-left-1 w-1/6 img-hor-vert" src="/assets/home/photo-holder.png" alt="">
-            <img class="border border-off-black" src="/assets/home/gallery.jpg" alt="">
-            <img class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -bottom-2 -right-2 md:-bottom-1 md:-right-1 w-1/6" src="/assets/home/photo-holder.png" alt="">
+            problem="This is a problem"
+            solution="This is a solution">
+          <div class="polaroid-card">
+            <img class="polaroid-holder-tl" src="/assets/home/photo-holder.png" alt="">
+            <img class="border border-off-black" src="/assets/home/stopwatch.jpg" alt="">
+            <img class="polaroid-holder-br" src="/assets/home/photo-holder.png" alt="">
             <div class="h-24 ">
-            <p class="mt-2 text-2xl h-16 max-w-xxs">Cloud Under the Sea</p>
-            <p class="mr-4 text-right"> Painting, 2018</p>
+            <p class="polaroid-title">chiphoagie.com</p>
+            <p class="polaroid-subtitle"> Side Project Website, Current</p>
+            </div>
+         </div>
+        </div>
+        <div class="masonry-item" 
+            onmouseover="updatePreview(this)"
+            problem="This is a problem"
+            solution="This is a solution">
+          <div class="polaroid-card">
+            <img class="polaroid-holder-tl" src="/assets/home/photo-holder.png" alt="">
+            <img class="border border-off-black w-full" src="/assets/home/chinook-fund.gif" alt="">
+            <img class="polaroid-holder-br" src="/assets/home/photo-holder.png" alt="">
+            <div class="h-24 ">
+            <p class="polaroid-title">Chinook Fund</p>
+            <p class="polaroid-subtitle"> Intern, 2017</p>
+            </div>
+         </div>
+        </div>
+         <div class="masonry-item" 
+            onmouseover="updatePreview(this)"
+            problem="This is a problem"
+            solution="This is a solution">
+          <div class="polaroid-card">
+            <img class="polaroid-holder-tl" src="/assets/home/photo-holder.png" alt="">
+            <img class="border border-off-black" src="/assets/home/table.jpg" alt="">
+            <img class="polaroid-holder-br" src="/assets/home/photo-holder.png" alt="">
+            <div class="h-24 ">
+            <p class="polaroid-title">Beside Tables</p>
+            <p class="polaroid-subtitle"> Furniture, 2021</p>
+            </div>
+         </div>
+        </div>
+         <div class="masonry-item" 
+            onmouseover="updatePreview(this)"
+            problem="This is a problem"
+            solution="This is a solution">
+          <div class="polaroid-card">
+            <img class="polaroid-holder-tl" src="/assets/home/photo-holder.png" alt="">
+            <img class="border border-off-black" src="/assets/home/gallery.jpg" alt="">
+            <img class="polaroid-holder-br" src="/assets/home/photo-holder.png" alt="">
+            <div class="h-24 ">
+            <p class="polaroid-title">Cloud Under the Sea</p>
+            <p class="polaroid-subtitle"> Painting, 2018</p>
             </div>
          </div>
         </div>

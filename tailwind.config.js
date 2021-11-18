@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
         'off-black': '#685A4D',
-        'poloroid-dark': '#BFBFBF',
+        'polaroid-dark': '#BFBFBF',
         'generic-blue': '#0000FF',
         'generic-yellow': '#FFFF00',
         'black-2F': '#2F2F2F'
