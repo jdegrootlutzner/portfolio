@@ -25,11 +25,48 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
-  }
-
+  } 
 }
 
 @layer utilities {
+
+
+@keyframes show-paint {
+    from {opacity: 0; }
+    to {opacity: 1; }
+}
+.show-paint {    
+  animation-duration: 2s;
+  animation-name: show-paint;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+    @keyframes paint-screen {
+    0% {left: 0%;
+        top: 10vh;
+        width: 40% }
+    33% { 
+          left: 75%;
+          top: 20vh;}
+    66% { left: 0%;
+          top: 40vh;}
+    99% { left: 99%;
+          top: 80vh;
+          width: 40%;
+
+      }
+    100% {
+      left: 100%;
+      width: 0;
+    }
+    }
+ .paint-screen {
+  animation-name: paint-screen;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
   .img-hor-vert {
       -moz-transform: scale(-1, -1);
       -o-transform: scale(-1, -1);

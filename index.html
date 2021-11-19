@@ -8,8 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Julian DeGroot-Lutzner</title>
   </head>
-  <body>
-    
+  <body class="relative overflow-x-hidden">
+    <div id="paint-brush" class="w-0 absolute z-20">
+      <img src="/assets/home/paint-brush.png" alt=" z-20">
+
+    </div>
+
     <div class=" flex flex-col md:flex-row w-full overflow-visible">
 
       <!-- Nav Bar -->
@@ -24,6 +28,10 @@
 
       <!-- Main Section -->
       <div class="w-full md:mr-20 lg:mr-32">
+
+        <div class="w-screen absolute left-0 z-30">
+
+        </div>
 
         <!-- Bio  -->
         <section id="bio" class="z-10 w-screen absolute left-0 hidden">
@@ -53,7 +61,7 @@
           </div>
           <img src="/assets/home/paint-brush-stroke.png" class="z-0 w-full absolute top-0 min-h-screen max-h-screen" alt="">
       
-          </section>
+        </section>
 
       <!-- Hero -->
       <section id='about' class=" pt-20  mb-nav ">
@@ -271,7 +279,11 @@
     }
 
     function paintMyBio(){
+      // document.getElementById('paint-brush').classList.add('move-it');
+      document.getElementById('paint-brush').classList.add('paint-screen');
       document.getElementById('bio').classList.remove('hidden');
+      document.getElementById('bio').classList.add('show-paint');
+
     }
     </script>
   </body>
