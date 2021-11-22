@@ -9,7 +9,6 @@
     <title>Julian DeGroot-Lutzner</title>
   </head>
   <body class="relative overflow-x-hidden">
-    <canvas class="w-screen h-screen bg-transparent fixed top-0 left-0 z-50 pointer-events-none"></canvas>
     <div id="paint-brush" class="w-0 absolute z-20">
       <img src="/assets/home/paint-brush.png" alt=" z-20">
 
@@ -292,34 +291,6 @@
       document.getElementById('bio').classList.add('show-paint');
 
     }
-    const canvas = document.querySelector("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const context = canvas.getContext("2d");
-
-    context.strokeStyle = "blue";
-    context,lineWidth = 20;
-    context.lineCap = "round";
-
-    var shouldPaint = false;
-
-    document.addEventListener("mousedown", function(event){
-	    shouldPaint = true;
-	    context.moveTo(event.clientX,event.clientY);
-	    context.beginPath();
-    })
-
-    document.addEventListener("mouseup", function(event){
-	      shouldPaint = false;
-    })
-
-    document.addEventListener("mousemove",function(event){
-	    if (shouldPaint) {
- 	    context.lineTo(event.clientX,event.clientY);
- 	    context.stroke();
-      }
-    })
-    
     </script>
   </body>
 </html>
