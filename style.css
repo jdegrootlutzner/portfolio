@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  *::-moz-selection { color: auto;  background: transparent; }  /* For Firefox */
-  *::selection      { color: auto;  background: transparent; } 
+  body{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
   @font-face {
       font-family: Trap;
       src: url("/assets/fonts/Trap-Black.woff") format("woff"), url("/assets/fonts/Trap-Black.ttf")  format("truetype");
