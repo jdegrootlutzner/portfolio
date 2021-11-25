@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Julian DeGroot-Lutzner</title>
   </head>
-  <body class="relative overflow-x-hidden">
-    <canvas class="w-screen h-screen bg-transparent fixed top-0 left-0 z-50 pointer-events-none"></canvas>
+  <body class="relative overflow-x-hidden" onload="setCanvas()">
+    <canvas class="bg-transparent absolute top-0 left-0 z-50 pointer-events-none"></canvas>
     <div id="paint-brush" class="w-0 absolute z-20">
       <img src="/assets/home/paint-brush.png" alt=" z-20">
 
@@ -292,33 +292,44 @@
       document.getElementById('bio').classList.add('show-paint');
 
     }
+
     const canvas = document.querySelector("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
     const context = canvas.getContext("2d");
 
-    context.strokeStyle = "blue";
-    context,lineWidth = 20;
-    context.lineCap = "round";
+    function setCanvas(){
+      canvas.width = document.body.clientWidth; //document.width is obsolete
+      canvas.height = document.body.clientHeight; //document.height is obsolete
+
+      context.strokeStyle = "blue";
+      context.lineWidth = 2;
+      context.lineCap = "round";
+    }
+ 
+    window.addEventListener("resize", function(event){
+      canvas.width = 0;
+      canvas.height = 0;
+      canvas.width = document.body.clientWidth;
+      canvas.height = document.body.clientHeight;
+    });
 
     var shouldPaint = false;
 
     document.addEventListener("mousedown", function(event){
 	    shouldPaint = true;
-	    context.moveTo(event.clientX,event.clientY);
+      context.moveTo(event.pageX ,event.pageY);
 	    context.beginPath();
-    })
+    });
 
     document.addEventListener("mouseup", function(event){
 	      shouldPaint = false;
-    })
+    });
 
     document.addEventListener("mousemove",function(event){
 	    if (shouldPaint) {
- 	    context.lineTo(event.clientX,event.clientY);
- 	    context.stroke();
+ 	      context.lineTo(event.pageX ,event.pageY);
+ 	      context.stroke();
       }
-    })
+    });
     
     </script>
   </body>
