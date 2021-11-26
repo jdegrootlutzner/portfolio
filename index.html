@@ -93,7 +93,7 @@
         </section>
 
       <!-- Projects -->
-      <section id="projects" >
+      <section id="projects" class="flex flex-col items-center md:block">
         <div class="relative pt-3 my-3 group">
           <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 h-20 bg-gradient-to-r transform -skew-y-6 w-60 from-transparent via-generic-yellow to-transparent">
           </div>
@@ -101,7 +101,7 @@
         </div>
         <!-- style="background-image: url('/printer-page.jpg');" -->
       <div id="project-grid" 
-          class="masonry-grid mx-4 md:mx-0 font-trap font-bold bg-repeat ">
+          class="flex flex-col items-center masonry-grid mx-4 md:mx-0 font-trap font-bold">
         <div class="masonry-item pt-10" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
@@ -206,7 +206,7 @@
             solution="This is a solution">
           <div class="project-card">
             <img src="/assets/home/project-box-1.png" class="project-sketch-box" alt="">
-            <img class="project-image" src="/assets/home/table.jpg" alt="A screenshot from a website I made at pentridgestation.com">
+            <img class="project-image " src="/assets/home/table.jpg" alt="A screenshot from a website I made at pentridgestation.com">
             <div class="h-28 ">
               <p class="project-title">Bedside Tables</p>
               <p class="project-subtitle"> Furniture, 2021</p>
@@ -226,7 +226,6 @@
               <p class="project-subtitle"> Painting, 2018</p>
             </div>
          </div>
-        </div>
       </div>
       <div id="preview" class="shadow-lg right-0 -bottom-52 pointer-events-none rounded-sm bg-white bg-opacity-75 hidden sm:flex border border-off-black fixed  max-w-lg mr-5">
         <div class="flex flex-col space-y-3 mb-3 mt-14">
@@ -250,6 +249,7 @@
 
         </div>
       </div>
+    </div>
     </section>
 
       

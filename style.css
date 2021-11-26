@@ -107,7 +107,9 @@
         animation-timing-function: ease-in;
       }
   }
- 
+  .masonry-item {
+    @apply max-w-sm;
+  }
   .img-hor-vert {
       -moz-transform: scale(-1, -1);
       -o-transform: scale(-1, -1);
