@@ -8,6 +8,10 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    cursor:  url('/pencil.svg') 0 22,
+      url('/pencil.cur'), default;
+
+  
   }
   @font-face {
       font-family: Trap;
@@ -35,7 +39,6 @@
 }
 
 @layer utilities {
-
 
 @keyframes show-paint {
     from {opacity: 0; }
