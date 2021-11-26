@@ -114,16 +114,22 @@
       -webkit-transform: scale(-1, -1);
       transform: scale(-1, -1);
   }
-  .polaroid-card {
+  .project-card {
     transition-property: transform, opacity;
     @apply group opacity-95 hover:opacity-100 transform hover:-translate-y-2 duration-300 px-4 pt-8 m-2 relative;
   }
-  .polaroid-title {
-    @apply mt-2 text-2xl h-16 max-w-xxs;
+  .project-title {
+    @apply mt-3 text-2xl h-16 max-w-xxs;
   }
-  .polaroid-subtitle {
+  .project-subtitle {
     @apply mr-4 text-right;
   }
+  .project-sketch-box {
+    @apply absolute w-full h-full -ml-4 -mt-8;
+  }
+  /* .project-image {
+    @apply border border-off-black;
+  } */
   .text-shadow {
     text-shadow: 0px 0px 1px #FFFFFF;
   }
