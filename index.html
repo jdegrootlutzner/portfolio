@@ -102,11 +102,39 @@
         <!-- style="background-image: url('/printer-page.jpg');" -->
       <div id="project-grid" 
           class="flex flex-col items-center masonry-grid mx-4 md:mx-0 font-trap font-bold">
-        <div class="masonry-item pt-10" 
+        
+        <div class="max-w-sm pt-10">
+         <div class="px-4 py-6 m-2 relative ">
+            <img src="/assets/home/project-box-1.png" class="project-sketch-box" alt="">
+            <p class="text-xl">Filter</p>
+            <div class="flex">
+              <p>Web Development</p>
+              <input type="checkbox" checked onclick="filterProjects(1)">
+            </div>
+            <div class="flex">
+              <p>Data Analytics</p>
+              <input type="checkbox" checked onclick="filterProjects(2)">
+            </div>
+            <div class="flex">
+              <p>Web Design</p>
+              <input type="checkbox" checked onclick="filterProjects(3)">
+            </div>
+            <div class="flex">
+              <p>Art</p>
+              <input type="checkbox" checked onclick="filterProjects(4)">
+            </div>
+            <div class="flex">
+              <p>Other</p>
+              <input type="checkbox" checked onclick="filterProjects(5)">
+            </div>
+        </div>
+        </div>
+        <div class="masonry-item" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
-            solution="This is a solution">
-          <div class="transition-transform group opacity-95 hover:opacity-100 transform hover:-translate-y-2 duration-300 px-4 pt-8 m-1 relative">
+            solution="This is a solution"
+            tags="1">
+          <div class="project-card">
             <img src="/assets/home/project-box-1.png" class="project-sketch-box" alt="">
             <img class="project-image" src="/assets/home/pentridge-station.jpg" alt="A screenshot from a website I made at pentridgestation.com">
             <div class="h-28 ">
@@ -119,7 +147,8 @@
       <div class="masonry-item" 
           onmouseover="updatePreview(this)"
           problem="This is a problem"
-          solution="This is a solution">
+          solution="This is a solution"
+          tags="5">
         <div class="project-card">
           <img src="/assets/home/project-box-2.png" class="project-sketch-box" alt="">
           <img class="project-image" src="/assets/home/privacy-video.jpg" alt="An old school television showing a screenshot from a video I made inside of it.">
@@ -133,7 +162,8 @@
         <div class="masonry-item" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
-            solution="This is a solution">
+            solution="This is a solution"
+            tags="1,3">
           <div class="project-card">
             <img src="/assets/home/project-box-3.png" class="project-sketch-box" alt="">
             <img class="project-image" src="/assets/home/honeybis.jpg" alt="A 3D model of a bottle of honey that is featured on a website I made at honeybis.com">
@@ -147,7 +177,8 @@
         <div class="masonry-item" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
-            solution="This is a solution">
+            solution="This is a solution"
+            tags="4,5">
           <div class="project-card">
             <img src="/assets/home/project-box-3.png" class="project-sketch-box" alt="">
             <img class="project-image" src="/assets/home/redial.jpg" alt="A rotary phone with featuring a sketch of oral storytelling inside of it.">
@@ -161,7 +192,8 @@
         <div class="masonry-item" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
-            solution="This is a solution">
+            solution="This is a solution"
+            tags="2">
           <div class="project-card">
             <img src="/assets/home/project-box-2.png" class="project-sketch-box" alt="">
             <img class="project-image" src="/assets/home/citibikes.gif" alt="A Gif of a few different graphs I made during a data analysis project about NYC's citibikes">
@@ -175,7 +207,8 @@
         <div class="masonry-item" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
-            solution="This is a solution">
+            solution="This is a solution"
+            tags="1,2,3">
           <div class="project-card">
             <img src="/assets/home/project-box-1.png" class="project-sketch-box" alt="">
             <img class="project-image" src="/assets/home/stopwatch.jpg" alt="A 3D model of an athletic cartoon stopwatch with arms, legs, and running gear.">
@@ -189,7 +222,8 @@
         <div class="masonry-item" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
-            solution="This is a solution">
+            solution="This is a solution"
+            tags="4,5">
           <div class="project-card">
             <img src="/assets/home/project-box-1.png" class="project-sketch-box" alt="">
             <img class="project-image" src="/assets/home/chinook-fund.gif" alt="A Gif of a few designs I made while I was an intern at a nonprofit in Colorado.">
@@ -203,7 +237,8 @@
         <div class="masonry-item" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
-            solution="This is a solution">
+            solution="This is a solution"
+            tags="4">
           <div class="project-card">
             <img src="/assets/home/project-box-2.png" class="project-sketch-box" alt="">
             <img class="project-image " src="/assets/home/table.jpg" alt="A piece of furniture I made by cutting a set of drawers in half at an angle and then repurposing each half into a bedside table.">
@@ -217,7 +252,8 @@
         <div class="masonry-item" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
-            solution="This is a solution">
+            solution="This is a solution"
+            tags="4">
           <div class="project-card">
             <img src="/assets/home/project-box-3.png" class="project-sketch-box" alt="">
             <img class="project-image" src="/assets/home/gallery.jpg" alt="A painting of a Microsoft cloud storage center submerged under the ocean in Ireland">
@@ -274,6 +310,61 @@
 
     <script type="module" src="/main.js"></script>
     <script>
+      var visibleProjectTypeList = [1,2,3,4,5];
+      const projects = document.getElementsByClassName('masonry-item');
+      const numProjects = projects.length;
+      console.log(numProjects);
+     function updateVisibileProjectTypeList(projectType){
+      if(![1,2,3,4,5].includes(projectType)){
+        console.log(`Error: Project type ${projectType} does not exist`);
+      } else {
+        var i = visibleProjectTypeList.indexOf(projectType);
+        if (i < 0 ){
+          visibleProjectTypeList.push(projectType);
+        } else {
+          visibleProjectTypeList.splice(i,1);
+        }
+
+      }
+     }
+
+     function filterProjects(projectType){
+   
+      // update list of showing categories
+      updateVisibileProjectTypeList(projectType);
+      console.log(visibleProjectTypeList);
+      for(var i = 0; i < numProjects; i++){
+        var projectTypesVisible = 0;
+        var projectTypes = projects[i].getAttribute('tags').split(',');
+        var numProjectTypes = projectTypes.length;
+        for(var ii = 0; ii < numProjectTypes; ii++){
+          if ( visibleProjectTypeList.includes(parseInt(projectTypes[ii])) ){
+            projectTypesVisible = projectTypesVisible + 1;
+          }
+        }
+        if (projectTypesVisible == 0) {
+          console.log(`Hide: Project ${i} , projectTypes: ${projectTypes}`);
+
+          if (!(projects[i].classList.contains('hidden'))){
+            projects[i].classList.add('hidden');
+          }
+        } else {
+          console.log(`Show: Project ${i} , projectTypes: ${projectTypes}`);
+
+          if ((projects[i].classList.contains('hidden'))){
+            projects[i].classList.remove('hidden');
+          }
+        }
+        
+      }
+      // web development 1, data analytics 2, web design 3, art 4
+
+      // for each project, check how many of the showing categories there are
+      // if there are no showing categories, 
+      //    check if the project is already hidden, if not hide the project
+      // if there is at least one showing category,
+      //    check if the project is hidden, if it is, remove the hidden
+     }
 
     function updatePreview(el){
       document.getElementById("preview-problem").textContent = el.getAttribute('problem');
