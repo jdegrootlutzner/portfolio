@@ -11,8 +11,8 @@ module.exports = {
     },
     extend: {
       height: {
-        'paint': '815px',
-        'paint-sm': '750px'
+        'paint': '850px',
+        'paint-sm': '950px'
       },
       colors: {
         'off-black': '#685A4D',
