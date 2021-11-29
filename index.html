@@ -106,7 +106,7 @@
         <div class="max-w-sm pt-10">
          <div class="px-4 py-6 m-2 relative ">
             <img src="/assets/home/project-box-1.png" class="project-sketch-box" alt="">
-            <p class="text-xl">Filter</p>
+            <p class="text-xl">Showing <span id="showingProjects"></span>/<span id="totalProjects"></span> Projects</p>
             <div class="flex">
               <p>Web Development</p>
               <input type="checkbox" checked onclick="filterProjects(1)">
@@ -313,7 +313,8 @@
       var visibleProjectTypeList = [1,2,3,4,5];
       const projects = document.getElementsByClassName('masonry-item');
       const numProjects = projects.length;
-      console.log(numProjects);
+      document.getElementById('totalProjects').textContent = numProjects;
+      document.getElementById('showingProjects').textContent = numProjects;
      function updateVisibileProjectTypeList(projectType){
       if(![1,2,3,4,5].includes(projectType)){
         console.log(`Error: Project type ${projectType} does not exist`);
@@ -329,10 +330,9 @@
      }
 
      function filterProjects(projectType){
-   
-      // update list of showing categories
+      // web development 1, data analytics 2, web design 3, art 4, other 5
       updateVisibileProjectTypeList(projectType);
-      console.log(visibleProjectTypeList);
+      var numShowingProjects = 0;
       for(var i = 0; i < numProjects; i++){
         var projectTypesVisible = 0;
         var projectTypes = projects[i].getAttribute('tags').split(',');
@@ -343,28 +343,17 @@
           }
         }
         if (projectTypesVisible == 0) {
-          console.log(`Hide: Project ${i} , projectTypes: ${projectTypes}`);
-
           if (!(projects[i].classList.contains('hidden'))){
             projects[i].classList.add('hidden');
           }
         } else {
-          console.log(`Show: Project ${i} , projectTypes: ${projectTypes}`);
-
+          numShowingProjects = numShowingProjects + 1;
           if ((projects[i].classList.contains('hidden'))){
             projects[i].classList.remove('hidden');
           }
         }
-        
-      }
-      // web development 1, data analytics 2, web design 3, art 4
-
-      // for each project, check how many of the showing categories there are
-      // if there are no showing categories, 
-      //    check if the project is already hidden, if not hide the project
-      // if there is at least one showing category,
-      //    check if the project is hidden, if it is, remove the hidden
-     }
+        document.getElementById('showingProjects').textContent = numShowingProjects;
+      }     }
 
     function updatePreview(el){
       document.getElementById("preview-problem").textContent = el.getAttribute('problem');
@@ -373,7 +362,6 @@
 
     }
     function scrollToId(id){
-      console.log('hello');
       document.getElementById(id).scrollIntoView({block:"nearest", behavior:"smooth"});
     }
 
