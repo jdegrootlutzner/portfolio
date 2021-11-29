@@ -343,13 +343,13 @@
           }
         }
         if (projectTypesVisible == 0) {
-          if (!(projects[i].classList.contains('hidden'))){
-            projects[i].classList.add('hidden');
+          if (!(projects[i].classList.contains('opacity-10'))){
+            projects[i].classList.add('opacity-10');
           }
         } else {
           numShowingProjects = numShowingProjects + 1;
-          if ((projects[i].classList.contains('hidden'))){
-            projects[i].classList.remove('hidden');
+          if ((projects[i].classList.contains('opacity-10'))){
+            projects[i].classList.remove('opacity-10');
           }
         }
         document.getElementById('showingProjects').textContent = numShowingProjects;
