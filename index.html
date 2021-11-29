@@ -99,36 +99,36 @@
           </div>
           <img class="absolute w-60 top-2" src="/assets/home/projects.png" alt="Projects:">
         </div>
+ 
         <!-- style="background-image: url('/printer-page.jpg');" -->
       <div id="project-grid" 
           class="flex flex-col items-center masonry-grid mx-4 md:mx-0 font-trap font-bold">
-        
-        <div class="max-w-sm pt-10">
-         <div class="px-4 py-6 m-2 relative ">
-            <img src="/assets/home/project-box-1.png" class="project-sketch-box" alt="">
-            <p class="text-xl">Showing <span id="showingProjects"></span>/<span id="totalProjects"></span> Projects</p>
-            <div class="flex">
-              <p>Web Development</p>
-              <input type="checkbox" checked onclick="filterProjects(1)">
-            </div>
-            <div class="flex">
-              <p>Data Analytics</p>
-              <input type="checkbox" checked onclick="filterProjects(2)">
-            </div>
-            <div class="flex">
-              <p>Web Design</p>
-              <input type="checkbox" checked onclick="filterProjects(3)">
-            </div>
-            <div class="flex">
-              <p>Art</p>
-              <input type="checkbox" checked onclick="filterProjects(4)">
-            </div>
-            <div class="flex">
-              <p>Other</p>
-              <input type="checkbox" checked onclick="filterProjects(5)">
-            </div>
-        </div>
-        </div>
+          <div id="project-filter" class="max-w-sm pt-10">
+          <div class="px-4 py-6 m-2 relative ">
+             <img src="/assets/home/project-box-1.png" class="project-sketch-box" alt="">
+             <p class="text-xl">Showing <span id="showingProjects"></span>/<span id="totalProjects"></span> Projects</p>
+             <div class="flex">
+               <p>Web Development</p>
+               <input type="checkbox" checked onclick="filterProjects(1)">
+             </div>
+             <div class="flex">
+               <p>Data Analytics</p>
+               <input type="checkbox" checked onclick="filterProjects(2)">
+             </div>
+             <div class="flex">
+               <p>Web Design</p>
+               <input type="checkbox" checked onclick="filterProjects(3)">
+             </div>
+             <div class="flex">
+               <p>Art</p>
+               <input type="checkbox" checked onclick="filterProjects(4)">
+             </div>
+             <div class="flex">
+               <p>Other</p>
+               <input type="checkbox" checked onclick="filterProjects(5)">
+             </div>
+         </div>
+         </div> 
         <div class="masonry-item" 
             onmouseover="updatePreview(this)"
             problem="This is a problem"
@@ -263,6 +263,7 @@
             </div>
          </div>
       </div>
+    </div>
       <div id="preview" class="shadow-lg right-0 -bottom-52 pointer-events-none rounded-sm bg-white bg-opacity-75 hidden sm:flex border border-off-black fixed  max-w-lg mr-5">
         <div class="flex flex-col space-y-3 mb-3 mt-14">
           <img class="w-8" src="/assets/home/spiral.png" alt="">
@@ -283,7 +284,6 @@
               <p class="ml-5 -mb-2" id="preview-solution"></p>
             </div>
 
-        </div>
       </div>
     </div>
     </section>
