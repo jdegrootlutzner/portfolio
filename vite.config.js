@@ -11,7 +11,7 @@ module.exports = defineConfig({
         privacy: resolve(__dirname, 'privacy/index.html'),
         honeybis: resolve(__dirname, 'honeybis/index.html'),
         redial: resolve(__dirname, 'redial/index.html'),
-        citibikes: resolve(__dirname, 'citbikes/index.html'),
+        citibikes: resolve(__dirname, 'citibikes/index.html'),
         chiphoagie: resolve(__dirname, 'chiphoagie/index.html'),
         chinook: resolve(__dirname, 'chinook/index.html'),
         tables: resolve(__dirname, 'tables/index.html'),
