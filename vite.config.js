@@ -8,7 +8,7 @@ module.exports = defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         pentridge: resolve(__dirname, 'pentridge/index.html'),
-        privacy: resolve(__dirname, 'digital/index.html'),
+        privacy: resolve(__dirname, 'privacy/index.html'),
         honeybis: resolve(__dirname, 'honeybis/index.html'),
         redial: resolve(__dirname, 'redial/index.html'),
         citibikes: resolve(__dirname, 'citbikes/index.html'),
