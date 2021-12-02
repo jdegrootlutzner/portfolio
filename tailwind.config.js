@@ -23,7 +23,11 @@ module.exports = {
 
       },
       margin: {
-        'nav': '38rem',
+        'nav': '37rem',
+        'nav-project': '36rem'
+      },
+      top: {
+        'far': '36rem',
       },
       maxWidth: {
         'xxs': '14rem',
