@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/assets/home/flexmasonry.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Julian DeGroot-Lutzner</title>
+  </head>
+
+  <body class="relative overflow-x-hidden" >
+
+    <div class=" flex flex-col md:flex-row w-full overflow-visible">
+
+      <!-- Nav Bar -->
+      <div class="mt-14 md:mt-nav-project w-full md:w-56 lg:w-64 md:sticky md:top-16 md:mr-10 lg:mr-16 self-start flex justify-center md:justify-end z-50">
+        <nav class="text-center w-full md:text-right font-trap text-md flex flex-col space-y-2 text-shadow font-semibold">
+         <p class="text-lg "> Julian DeGroot-Lutzner</p>
+         <a href="/">
+         <p class="md:mr-4 hover:text-generic-blue">About</p>
+        </a>
+         <a href="/#projects">
+         <p class="md:mr-4 hover:text-generic-blue">Projects</p>
+        </a>
+        <a href="/#contact">
+         <p class="md:mr-4 hover:text-generic-blue">Contact</p>
+        </a>
+       </nav>
+      </div>
+
+
+      <!-- Main Section -->
+      <div class="flex flex-col md:flex-row">
+
+      <div class="flex flex-col items-center md:max-w-md">
+      <article class="article mb-14">
+          
+
+
+        
+    </article>
+  </div>
+  <section class="h-full">
+    <div id="project-navigation" class="flex flex-col items-center md:absolute md:bottom-10 opacity-0">
+      <a href="/honeybis/" >
+        <p class="project-nav-direction">
+      Previous Project:
+      </p>
+    <div class="flex flex-row md:flex-col">
+      <div class="project-nav-box">
+        <div class="flex flex-col space-y-3 mb-3 mt-10">
+          <img class="w-8" src="/assets/home/spiral.png" alt="">
+          <img class="w-8" src="/assets/home/spiral.png" alt="">
+          <img class="w-8" src="/assets/home/spiral.png" alt="">
+          <img class="w-8" src="/assets/home/spiral.png" alt="">
+        </div>
+        <div class=" ml-4 w-full mr-2">
+            <p class="project-nav-title" id="preview-title">
+            honeybis.com
+            </p>
+            <p class="project-nav-summary">• <span id="preview-summary">Launched E-Commerce website for Philly based CBD infused Honey start-up.</span></p> 
+            <p class="project-nav-details" id="preview-details"> WordPress, Elementor, Figma, Adobe Creative Cloud, HTML/CSS, and Javascript. 3D Animation using Lottie and Bodymovin</p>
+      </div>
+    </div>
+    </div>
+  </a>
+  <a href="/citbikes/" >
+    <p class="project-nav-direction mt-6">
+    Next Project:
+    </p>
+    <div class="flex flex-row md:flex-col">
+    <div class="project-nav-box">
+      <div class="flex flex-col space-y-3 mb-3 mt-10">
+        <img class="w-8" src="/assets/home/spiral.png" alt="">
+        <img class="w-8" src="/assets/home/spiral.png" alt="">
+        <img class="w-8" src="/assets/home/spiral.png" alt="">
+        <img class="w-8" src="/assets/home/spiral.png" alt="">
+      </div>
+      <div class=" ml-4 w-full mr-2">
+          <p class="project-nav-title" id="preview-title">
+          Citbikes Data Analysis
+          </p>
+          <p class="project-nav-summary">• <span id="preview-summary">Cleaned, visualized, and analyzed large Citibikes dataset in R.</span></p> 
+          <p class="project-nav-details" id="preview-details"> R, MySQL, ggplot2, dplyr, caret </p>
+      </div>
+      </div>
+    </div>
+  </a>
+  <div class="w-72 flex md:hidden my-10 font-trap justify-between mx-7  ">
+    <p>About</p> 
+    <p>Projects</p> 
+    <p>Contact</p> 
+
+ </div>
+</div>
+</section>
+</div>
+  </div>
+
+    <script>
+      const projectNavigation = document.getElementById('project-navigation');
+      const observer = new IntersectionObserver(
+        function(entries, observer){
+            entries.forEach(entry => {
+              if(!entry.isIntersecting){
+                return;
+              }
+              entry.target.classList.toggle('animate-opacity');
+           
+            observer.unobserve(entry.target);
+          })
+      });
+      observer.observe(projectNavigation);
+    </script>
+    
+  </body>
+ 
+</html>
