@@ -38,19 +38,19 @@
         </div>
 
         <!-- Bio  -->
-        <section id="bio" class="z-10 w-screen absolute left-0 hidden">
+        <section id="bio" class="z-10 w-screen absolute left-0 opacity-0 pointer-events-none">
           <div class="z-10  absolute flex  justify-center w-full top-28 sm:top-44">
             <div class="text-white text-md sm:text-xl w-10/12 sm:w-7/12 lg:w-5/12 max-w-md flex flex-col space-y-3">
-            <p> Hello, my name is Julian and I make beautiful things that entertain, help, and provoke thought. I love to learn and work across disciplines.
-            </p>
-            <p>
+            <h1> Hello, my name is Julian and I make beautiful things that entertain, help, and provoke thought. I love to learn and work across disciplines.
+            </h1>
+            <h2>
               Recently, I've been working as the lead developer and project manager
               at a small web design company. In the past, I worked for the Berkman Klein Center at Harvard, and at the Chinook Fund in Denver, Colorado.
               I primarily work with Ruby on Rails, Javascript, HTML/CSS, and R.
-            </p>
-            <p>
+            </h2>
+            <h3>
               I won the Interdisciplinary Award at Pitzer College, where my studies combined sociology, computer science, and statistics. I enjoy running, playing chess, and collaborating with friends.
-            </p>
+            </h3>
             <div class="flex space-x-6">
               <a href="https://www.instagram.com/jdegrootlutzner/">
                 <img src="/assets/instagram-icon.svg" alt="Instagram">
@@ -94,6 +94,19 @@
           </div>
       </div>
     </div>
+    <noscript class="flex flex-col space-y-3 max-w-md">
+      <h1> Hello, my name is Julian and I make beautiful things that entertain, help, and provoke thought. I love to learn and work across disciplines.
+      </h1>
+      <h2>
+        Recently, I've been working as the lead developer and project manager
+        at a small web design company. In the past, I worked for the Berkman Klein Center at Harvard, and at the Chinook Fund in Denver, Colorado.
+        I primarily work with Ruby on Rails, Javascript, HTML/CSS, and R.
+      </h2>
+      <h3>
+        I won the Interdisciplinary Award at Pitzer College, where my studies combined sociology, computer science, and statistics. I enjoy running, playing chess, and collaborating with friends.
+      </h3>
+      <p>P.S. This website looks better with Javascript enabled</p>
+    </noscript>
         </section>
 
       <!-- Projects -->
@@ -378,7 +391,8 @@
     function paintMyBio(){
       // document.getElementById('paint-brush').classList.add('move-it');
       document.getElementById('paint-brush').classList.add('paint-screen');
-      document.getElementById('bio').classList.remove('hidden');
+      document.getElementById('bio').classList.remove('opacity-0');
+      document.getElementById('bio').classList.remove('pointer-events-none');
       document.getElementById('bio').classList.add('show-paint');
 
     }
