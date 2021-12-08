@@ -39,43 +39,38 @@
         <h4>For one of our first clients at Zipperfield, I decided to make a custom marketing website from scratch.</h4> 
 
         <p>You can <a href="https://www.pentridgestation.com/"> view the live website here</a> and <a href="https://github.com/Zipperfield/pentridge-station">view the Github repo here.</a></p> 
-        <p>The website launched in July 2021 and has been a huge success. In the first month, the website garnered more than 1,400 unique visitors and within the first six months, the website led to over ten paid private event bookings.</p>
-        <p> Instead of using something like SquareSpace or WordPress, I decided to "recreate the wheel" by building the site with Ruby on Rails, HTML/CSS, and Javascript. By building the website the hard way, I could build technical and design experience for more complicated projects in the future.</p>
+        <p>The website launched in July 2021 and has been a huge success. In the first month, the website garnered more than 1,400 unique visitors. Within the first six months, the website led to over ten paid private event bookings!</p>
+        <p> Instead of using something like Squarespace or WordPress, I decided to "recreate the wheel" by building the site with Ruby on Rails, HTML/CSS, and JavaScript. By building the website the hard way, I could build technical and design experience for more complicated projects in the future.</p>
         <p>In this article, I will go over what I made, how I made it, and what I learned in the process.</p>
-        <h4>Context</h4>
-        <p>Pentridge Station is a summertime beer garden in West Philadelphia. They opened in June 2017 but temporarily closed in 2020 because of the pandemic. The owners of the beer garden saw 2021 as an opportunity to rebrand themselves as a private event space in addition to a beer garden.</p>
-         <p> Pentridge Station could provide an outdoor space safe for the many important events people postponed during in 2020. Not only could Pentridge Station could provide a cheaper price point than local competitors' pricing, they could also connect you to talented musicians, caterers, and entertainers that were already in the beer gardens network.</p>
-         <h4>The Website Requirements and Features</h4>
-
-         <p> The owners approached us with the need for an event booking website. The main feature they wanted was a form that allowed users to select an available date, request to book one of the many food vendors or entertainers in their network, and show the user a price estimate.</p>      
-        <p>Besides these technical requirements,the website was a chance to upgrade the company's digital presence.
-          Booking a space for a private event was a large purchase that requires trust. People should be confident that the location of their wedding will lead to happy memories. I was responsible for the text content on the website and I know that every part of the website is important to building credibility. </p>
+        <h4>The Website Requirements and Features</h4>
+        <p>Pentridge Station is a summertime beer garden in West Philadelphia. The owners of the beer garden saw 2021 as an opportunity to rebrand themselves as a private event space in addition to a beer garden. They could provide an outdoor space safe for the events people postponed in 2020. </p>
+         <p> With this vision in mind, the owners approached us to create an event booking website that showcased all the event space had to offer. The booking process would include the option to book add-ons like an open bar, bartenders, a door person, entertainers, and caterers. The booking process would also include a way to learn about each caterer and entertainer so the user could make a decision. </p> 
+        <p>The website also provided an opportunity to upgrade the company's digital presence. </p>
           <img src="/assets/pentridge/previous-website.jpg" alt="A screenshot of the previous website">
           <p class="italic">The company's previous website featured a media carousel and not much else.</p>
-
-          <p>Through our digital branding we hoped to accomplish a few major goals.</p>
-          <p> We wanted to show off the beauty of the space and the structural improvements that were made during 2020. To do this we would place high quality photos of the space central on the homepage. </p>
-          <p> Next, we wanted to convey the importance that the beer garden has in the community. We could do this through a thoughtly crafted narrative on an "about" page, as well as through a press section. </p>
-          <p>Finally, we focused on bringing people to the beer garden. We would put the address within the first description of the space and include an interactive map to show how close it was to a main street.</p>
-          <h4>The Design and Development Process</h4>
-
-          <p>My business partner Eli started with custom designs in Figma. For the booking page, he drew inspiration from the Airbnb checkout form. I designed the event booking process. </p>
+        <p>Booking a space for a private event is a large purchase; one that requires trust. Couples should be confident in the space they have their wedding! Every part of the website is important to building credibility. With this pitch, I sold myself as the website's copy-editor. </p>
+        <p>Although, I was responsible for the copy editing on the website, the client also wanted a way to change the text content on their own. </p> 
+        <p> The ability to change any content on a website without coding is called a Content Management System (CMS) and the most popular software to do this is WordPress. The CMS for Rails is Comfortable Mexican Sofa. This opensource software allowed me to create an admin panel that the client could log in to and manage the website's text and photo content.</p>
+        <p>With these goals in mind we began creating the website.</p>
+        <h4>The Design and Development Process</h4>
+          <p>My business partner Eli started with custom designs in Figma. </p>
           <img src="/assets/pentridge/figma-design.jpg" alt="A snapshot of the Figma file">
           <p class="italic"> A screenshot of the Figma file.</p>
-          <p>The client wanted a way to change the content in the future on their own. The ability to change any content on a website without coding is called a Content Management System (CMS), and the most popular software to do this is WordPress. The alternative CMS for Rails is Comfortable Mexican Sofa. This opensource software allowed me to creates an admin panel that the client could log in to, manage the text and photo content, and view any user submitted data. </p>
-          <p>The Pentridge Station CMS allows for the client to easily manage their website. For one, they can view event requests and approve or deny them. Approved event requests will block off the date in the event booking calendar. </p> 
-          <p>On the CMS, I created a form that allows the client to add new food vendors and entertainers. Information added to this community member form will automatically populate on the event booking page and on the community page. </p>
+          <p>Through the design we hoped to accomplish a few major goals.</p>
+          <p> We wanted to show off the beauty of the space and the structural improvements the owners made during 2020. To show off the beauty we placed high quality photos of the space central on the homepage. </p>
+          <p> Next, we wanted to convey the importance that the beer garden has in the community. We could do this with a press section and an "about" page. </p>
+          <p>Finally, we focused on bringing more people to the beer garden. We displayed the address near the top of the page and included an interactive map to ease navigation to the beer garden.</p>
+          <p>I added additional features into the Pentridge Station CMS that allow the client to easily manage their website. For example, the client can view event requests and approve or deny them. Approved event requests will block off the date in the event booking calendar. </p> 
+          <p>Additionally, I created a form in the CMS that allows the client to add new food vendors and entertainers. Information added to this form will automatically populate to the appropriate places on the website. </p>
           <p>
-            We thought it would save time to try hammer out some of the design details later on in the process. This was a bad idea as I ended up recoding some of the sections before we settled on a specific design. </p>
-          <p>One example of the problem of specifying design details after coding started was the process of making the booking form. We spent special attention to make sure that the booking form was easy to use. However, most of this thinking happened after I had coded a first version of the form. We could have more efficiently been done before I started to code. </p>
-          <p>Another difficulty with the design process was figuring out how to present all the information. Pentridge Station is both a beer garden and event space, with both public and private events. We had to advertise all the functionality as well as communicate the pricing, the rules for private events, and anticipate the main questions that people would have when booking.</p>
-          <p>In future jobs where I am resonsible for the text content, I would write the text content before I start coding. Text content is integral to the design so its hard to seperate the process!</p>
+            We thought it would save time to try hammer out some of the design details later on in the process. The idea did not work in practice and I ended up re-coding some of the sections before we settled on a specific design. For example, I ended up re-coding the event booking process multiple times as we improved the design of the user experience. </p>
+          <p>Another difficulty was distilling all the information about the business. Pentridge Station is both a beer garden and event space, with both public and private events. We had to advertise the booking add-ons, communicate the pricing, explain the rules for private events, and anticipate the main questions that people would have when booking.</p>
+          <p>In future jobs where I am responsible for the text content, I would write the text content before as we created the design. Text content is integral to the design so it can be difficult to separate the process!</p>
           <h4>A Few Final Take Aways</h4>
-          <p>One of the biggest lessons I learned from working on this project was how to approach a large multi-page website or webapp. </p>
-          <p>When working on a large project, it is a valuable skill to break up the project into smaller pieces. I found myself more productive on days where I had more Git commits. At first glance, this idea seems trivial: more Git commits obviously seems related to being more productive. However, the real insight lies in that on the days I had more Git commits, I was better at breaking up a larger problem in to smaller parts. A smaller idea means more specific testing and less trouble shooting.  </p>
-          <p>A related idea to approaching a large problem in small pieces is to only work on one thing at a time. Design should be focused on design. Coding on coding. When we waited on figuring out the details of the design of the event form, I ended up doing more work than I needed. Sometimes breaking up a project into smaller pieces can seem to add more work. As I improve, I will be able to take more shortcuts in the process.</p>
-
-          <p> These ideas deserve their own article. Many of these insights I applied on my next project Honeybis. </p>
+          <p>One of the biggest lessons I learned from working on this project was how to approach a large multi-page website or web app. </p>
+          <p>When working on a large project, it is a valuable skill to break up the project into smaller pieces. I found myself more productive on days when I had more Git commits. At first glance, this idea seems trivial: more Git commits obviously seems related to being more productive. However, the real insight lies in that on the days I had more Git commits, I more consistently broke up larger problem in to smaller parts. A smaller idea means more specific testing and less trouble shooting!  </p>
+          <p>A related idea to approaching a large problem in small pieces is to only work on one thing at a time. Design should be focused on design. Coding on coding. When we waited on figuring out the details of the design of the event booking process, I ended up doing more work than I needed. At times, breaking up a project into smaller pieces might seem to add work, but it is definitely a trade-off. As I improve, I will be able to take shortcuts in the process.</p>
+          <p> Many of these insights I applied on my next project Honeybis. </p>
           <h4>Thank you for reading, please <a href="https://github.com/Zipperfield/pentridge-station"> check out my Github page</a> for this project. </h4>
     </article>
   </div>
