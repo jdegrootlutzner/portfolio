@@ -22,7 +22,7 @@
     <meta name="twitter:site" content="@jdegrootlutzner">
   </head>
 
-  <body class="home relative overflow-x-hidden" onload="setCanvas()">
+  <body class="home relative overflow-x-hidden" onload="initCanvas()">
     <canvas class="bg-transparent absolute top-0 left-0 z-50 pointer-events-none custom-cursor"></canvas>
     <div id="bodyContent">
 
@@ -417,7 +417,9 @@
       canvas.width = document.body.clientWidth;
       canvas.height = document.getElementById('bodyContent').clientHeight;
     }
-
+    function initCanvas(){
+      setTimeout( setCanvas, 50);
+    }
     function setCanvas(){
       setDimensions();
       context.strokeStyle = "blue";
