@@ -23,6 +23,7 @@
   </head>
 
   <body class="home relative overflow-x-hidden" onload="initCanvas()">
+    <img onclick="savePhoto()" id="saveIcon" src="/assets/home/save.svg" alt="" class="fixed top-60 z-50 left-10 cursor-pointer hidden">
     <canvas class="bg-transparent absolute top-0 left-0 z-50 pointer-events-none custom-cursor"></canvas>
     <div id="bodyContent">
 
@@ -433,6 +434,7 @@
     });
 
     var shouldPaint = false;
+    var firstPaint = true;
 
     document.addEventListener("mousedown", function(event){
 	    shouldPaint = true;
@@ -446,11 +448,73 @@
 
     document.addEventListener("mousemove",function(event){
 	    if (shouldPaint) {
+        if(firstPaint){
+          showSaveIcon();
+          firstPaint = false;
+        }
  	      context.lineTo(event.pageX ,event.pageY);
  	      context.stroke();
       }
     });
     
+
+    function showSaveIcon(){
+      const saveIcon = document.getElementById('saveIcon');
+      saveIcon.classList.remove('hidden');
+      saveIcon.classList.add('animate-opacity');
+    }
+
+
+    function dataURItoBlob(dataURI) {
+    // convert base64 to raw binary data held in a string
+    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+    var byteString = atob(dataURI.split(',')[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+    // write the bytes of the string to an ArrayBuffer
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    //Old Code
+    //write the ArrayBuffer to a blob, and you're done
+    //var bb = new BlobBuilder();
+    //bb.append(ab);
+    //return bb.getBlob(mimeString);
+
+    //New Code
+    return new Blob([ab], {type: mimeString});
+
+
+}
+
+
+
+
+    function savePhoto(){
+      var dataURL = canvas.toDataURL("image/png");
+      var f = new FormData();
+      f.append('sketch[artist]', 'artist name' );
+      f.append('sketch[image]', dataURItoBlob(dataURL));
+
+      fetch('https://jdegrootlutzner.herokuapp.com/sketches.json', {
+        method: 'POST',
+        body: f,
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log('Success:', result);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
+          }
+   
     </script>
     
   </body>
