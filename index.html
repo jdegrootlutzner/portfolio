@@ -420,6 +420,7 @@
     }
     function initCanvas(){
       setTimeout( setCanvas, 50);
+      pingVisitorsLog();
     }
     function setCanvas(){
       setDimensions();
@@ -492,9 +493,20 @@
 
 }
 
+  function pingVisitorsLog(){
 
-
-
+    fetch('https://jdegrootlutzner.herokuapp.com/sketches.json', {
+        method: 'GET'
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log('Ping Visitors Log Success:', result);
+      })
+      .catch(error => {
+        console.error('Ping Visitors Log Error:', error);
+      });
+    }
+  
     function savePhoto(){
       var dataURL = canvas.toDataURL("image/png");
       var f = new FormData();
