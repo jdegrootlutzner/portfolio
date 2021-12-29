@@ -34,7 +34,7 @@
             <p class="font-trap max-w-xs text-3xl mb-4">Add your sketch to the <a href="https://jdegrootlutzner.herokuapp.com/" target="_blank" class="underline hover:text-generic-blue">visitor's log.</a></p>
             <div class="flex">
               <p>Sign your masterpiece:</p>
-              <input id="sketch_artist" type="text" placeholder="your name" class=" border-b-2 mx-4 w-36">
+              <input id="sketch_artist" type="text" placeholder=" your name" class=" border-b-2 mx-4 w-36">
             </div>
           </div>
           <button onclick="savePhoto()" class="self-end border-green-500 border-4 w-24 h-14  font-semibold text-xl rounded-3xl transition-colors duration-500 text-green-500 hover:bg-green-500 hover:text-gray-50">Save</button>
@@ -529,7 +529,8 @@
       // preventDefault();
       var dataURL = canvas.toDataURL("image/png");
       var f = new FormData();
-      f.append('sketch[artist]', 'artist name' );
+      var artistName = document.getElementById('sketch_artist').value;
+      f.append('sketch[artist]', artistName);
       f.append('sketch[image]', dataURItoBlob(dataURL));
 
       fetch('https://jdegrootlutzner.herokuapp.com/sketches.json', {
