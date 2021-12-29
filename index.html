@@ -23,8 +23,26 @@
   </head>
 
   <body class="home relative overflow-x-hidden" onload="initCanvas()">
-    <img onclick="savePhoto()" id="saveIcon" src="/assets/home/save.svg" alt="" class="fixed top-60 z-50 left-10 cursor-pointer hidden">
-    <canvas class="bg-transparent absolute top-0 left-0 z-50 pointer-events-none custom-cursor"></canvas>
+    <section id="sketch_form_container" class="fixed hidden top-0 left-0 z-50 items-center w-full justify-center h-full">
+      <div id="sketch_form" class="shadow-md bg-gray-50 p-8 flex flex-col items-center justify-center border border-gray-300 rounded-xl h-1/2" >
+        <p id="close_form" class="self-end font-trap font-black cursor-pointer text-xl mb-1">X</p>
+        <div class="bg-gray-200 w-full max-w-md h-full max-h-60 mb-3">
+          <img src="" alt="">
+        </div>
+        <div class="flex">
+          <div>
+            <p class="font-trap max-w-xs text-3xl mb-4">Add your sketch to the <a href="https://jdegrootlutzner.herokuapp.com/" target="_blank" class="underline hover:text-generic-blue">visitor's log.</a></p>
+            <div class="flex">
+              <p>Sign your masterpiece:</p>
+              <input id="sketch_artist" type="text" placeholder="your name" class=" border-b-2 mx-4 w-36">
+            </div>
+          </div>
+          <button onclick="savePhoto()" class="self-end border-green-500 border-4 w-24 h-14  font-semibold text-xl rounded-3xl transition-colors duration-500 text-green-500 hover:bg-green-500 hover:text-gray-50">Save</button>
+        </div>
+      </div>
+    </section>
+    <img onclick="openPopUp()" id="saveIcon" src="/assets/home/save.svg" alt="" class="fixed top-60 z-50 left-10 cursor-pointer hidden">
+    <canvas class="bg-transparent absolute top-0 left-0 z-40 pointer-events-none custom-cursor"></canvas>
     <div id="bodyContent">
 
     <div id="paint-brush" class="w-0 absolute z-20">
@@ -508,6 +526,7 @@
     }
   
     function savePhoto(){
+      // preventDefault();
       var dataURL = canvas.toDataURL("image/png");
       var f = new FormData();
       f.append('sketch[artist]', 'artist name' );
@@ -524,9 +543,28 @@
       .catch(error => {
         console.error('Error:', error);
       });
+      window.open('https://jdegrootlutzner.herokuapp.com/','_blank');
+      document.getElementById('close_form').click();
+      document.getElementById('saveIcon').classList.toggle('hidden');
 
           }
-   
+  function closeForm(e) {
+    if(document.getElementById('close_form').contains(event.target) |
+      !document.getElementById('sketch_form').contains(event.target)){
+      const sketchFormContainer = document.getElementById('sketch_form_container');
+      sketchFormContainer.classList.remove('flex');
+      sketchFormContainer.classList.add('hidden');
+      sketchFormContainer.removeEventListener('click',closeForm)
+    }
+
+  }
+  function openPopUp() {
+    const sketchFormContainer = document.getElementById('sketch_form_container');
+    sketchFormContainer.classList.remove('hidden');
+    sketchFormContainer.classList.add('flex');
+    sketchFormContainer.addEventListener('click', closeForm);
+
+}
     </script>
     
   </body>

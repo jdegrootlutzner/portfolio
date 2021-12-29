@@ -20,7 +20,6 @@ module.exports = {
         'generic-blue': '#0000FF',
         'generic-yellow': '#FFFF00',
         'black-2F': '#2F2F2F'
-
       },
       margin: {
         'nav': '37rem',
