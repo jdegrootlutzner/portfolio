@@ -26,15 +26,13 @@
     <section id="sketch_form_container" class="fixed hidden top-0 left-0 z-50 items-center w-full justify-center h-full">
       <div id="sketch_form" class="shadow-md bg-gray-50 p-8 flex flex-col items-center justify-center border border-gray-300 rounded-xl h-1/2" >
         <p id="close_form" class="self-end font-trap font-black cursor-pointer text-xl mb-1">X</p>
-        <div class="bg-gray-200 w-full max-w-md h-full max-h-60 mb-3">
-          <!-- <img src="" alt=""> -->
-        </div>
+          <img id="canvas_screenshot" class="h-full max-w-lg p-2">
         <div class="flex">
           <div>
             <p class="font-trap max-w-xs text-3xl mb-4">Add your sketch to the <a href="https://jdegrootlutzner.herokuapp.com/" target="_blank" class="underline hover:text-generic-blue">visitor's log.</a></p>
             <div class="flex">
               <p>Sign your masterpiece:</p>
-              <input id="sketch_artist" type="text" placeholder=" your name" class=" border-b-2 mx-4 w-36">
+              <input id="sketch_artist" type="text" placeholder="your name" class=" border-b-2 mx-4 pl-2 w-36">
             </div>
           </div>
           <button onclick="savePhoto()" class="self-end border-green-500 border-4 w-24 h-14  font-semibold text-xl rounded-3xl transition-colors duration-500 text-green-500 hover:bg-green-500 hover:text-gray-50">Save</button>
@@ -512,19 +510,18 @@
 }
 
   function pingVisitorsLog(){
+        fetch('https://jdegrootlutzner.herokuapp.com/sketches.json', {
+            method: 'GET'
+          })
+          .then(response => response.json())
+          .then(result => {
+            console.log('Ping Visitors Log Success:', result);
+          })
+          .catch(error => {
+            console.error('Ping Visitors Log Error:', error);
+          });
+     }
 
-    fetch('https://jdegrootlutzner.herokuapp.com/sketches.json', {
-        method: 'GET'
-      })
-      .then(response => response.json())
-      .then(result => {
-        console.log('Ping Visitors Log Success:', result);
-      })
-      .catch(error => {
-        console.error('Ping Visitors Log Error:', error);
-      });
-    }
-  
     function savePhoto(){
       // preventDefault();
       var dataURL = canvas.toDataURL("image/png");
@@ -564,7 +561,111 @@
     sketchFormContainer.classList.remove('hidden');
     sketchFormContainer.classList.add('flex');
     sketchFormContainer.addEventListener('click', closeForm);
+    setCanvasImage();
+    document.getElementById('canvas_screenshot').src = canvasImage;
 
+}
+var canvasImage; 
+function setCanvasImage() {
+
+  canvasImage = getTrimmedCanvas().toDataURL("image/png");
+}
+  // return a trimmed copy of the canvas
+  getTrimmedCanvas = () => {
+    // copy the canvas
+    let copy = document.createElement('canvas')
+    copy.width = canvas.width
+    copy.height = canvas.height
+    copy.getContext('2d').drawImage(canvas, 0, 0)
+    // then trim it
+    return trimCanvas(copy)
+  }
+function trimCanvas (c) {
+  const context2 = c.getContext('2d')
+
+  const imgWidth = c.width
+  const imgHeight = c.height
+
+  const imgData = context2.getImageData(0, 0, imgWidth, imgHeight).data
+
+  // get the corners of the relevant content (everything that's not white)
+  const cropTop = scanY(true, imgWidth, imgHeight, imgData)
+  const cropBottom = scanY(false, imgWidth, imgHeight, imgData)
+  const cropLeft = scanX(true, imgWidth, imgHeight, imgData)
+  const cropRight = scanX(false, imgWidth, imgHeight, imgData)
+
+  // + 1 is needed because this is a difference, there are n + 1 pixels in
+  // between the two numbers inclusive
+  const cropXDiff = (cropRight - cropLeft) + 1
+  const cropYDiff = (cropBottom - cropTop) + 1
+
+  // get the relevant data from the calculated coordinates
+  const trimmedData = context2.getImageData(cropLeft, cropTop, cropXDiff,
+    cropYDiff)
+
+  // set the trimmed width and height
+  c.width = cropXDiff
+  c.height = cropYDiff
+  // clear the canvas
+  context2.clearRect(0, 0, cropXDiff, cropYDiff)
+  // place the trimmed data into the cleared canvas to create
+  // a new, trimmed canvas
+  context2.putImageData(trimmedData, 0, 0)
+  return c // for chaining
+}
+
+// returns the RGBA values of an x, y coord of imgData
+function getRGBA (x, y, imgWidth, imgData) {
+  return {
+    red: imgData[(imgWidth * y + x) * 4],
+    green: imgData[(imgWidth * y + x) * 4 + 1],
+    blue: imgData[(imgWidth * y + x) * 4 + 2],
+    alpha: imgData[(imgWidth * y + x) * 4 + 3]
+  }
+}
+
+function getAlpha (x, y, imgWidth, imgData) {
+  return getRGBA(x, y, imgWidth, imgData).alpha
+}
+
+// finds the first y coord in imgData that is not white
+function scanY (fromTop, imgWidth, imgHeight, imgData) {
+  const offset = fromTop ? 1 : -1
+  const firstCol = fromTop ? 0 : imgHeight - 1
+
+  // loop through each row
+  for (let y = firstCol; fromTop ? (y < imgHeight) : (y > -1); y += offset) {
+    // loop through each column
+    for (let x = 0; x < imgWidth; x++) {
+      // if not white, return col
+      if (getAlpha(x, y, imgWidth, imgData)) {
+        return y
+      }
+    }
+  }
+
+  // the whole image is white already
+  return null
+}
+
+// finds the first x coord in imgData that is not white
+function scanX (fromLeft, imgWidth, imgHeight, imgData) {
+  const offset = fromLeft ? 1 : -1
+  const firstRow = fromLeft ? 0 : imgWidth - 1
+
+  // loop through each column
+  for (let x = firstRow; fromLeft ? (x < imgWidth) : (x > -1); x += offset) {
+    // loop through each row
+    for (let y = 0; y < imgHeight; y++) {
+      // if not white, return row
+      if (getAlpha(x, y, imgWidth, imgData)) {
+        return x
+      }
+    }
+  }
+
+  // the whole image is white already
+  return null
 }
     </script>
     

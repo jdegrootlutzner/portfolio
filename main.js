@@ -12,5 +12,3 @@ FlexMasonry.init('.masonry-grid',
             'min-width: 576px': 1,
         },
     });
-
-
