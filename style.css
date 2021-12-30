@@ -53,6 +53,10 @@
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
   }
+  input:invalid {
+    border: 2px dashed red;
+  }
+  
 }
 
 @layer utilities {
