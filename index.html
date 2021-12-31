@@ -24,12 +24,14 @@
 
   <body class="home relative overflow-x-hidden" onload="initCanvas()">
     <section id="sketch_form_container" class="fixed hidden top-0 left-0 z-50 items-center w-full justify-center h-full">
-      <div id="sketch_form" class="shadow-md bg-gray-50 p-8 flex flex-col items-center justify-center border border-gray-300 rounded-xl h-1/2" >
+      <div id="sketch_form" class="shadow-md bg-gray-50 p-8 flex flex-col items-center justify-center border border-gray-300 rounded-xl " >
         <p id="close_form" class="self-end font-trap font-black cursor-pointer text-xl mb-1">X</p>
+        <div class="h-60">
           <img id="canvas_screenshot" class="h-full max-w-lg p-2">
+        </div>  
         <div class="flex">
           <div>
-            <p class="font-trap max-w-xs text-3xl mb-4">Add your sketch to the <a href="https://jdegrootlutzner.herokuapp.com/" target="_blank" class="underline hover:text-generic-blue">visitor's log.</a></p>
+            <p class="font-trap max-w-xs text-3xl mb-4">Add your sketch to the <a href="https://jdegrootlutzner.herokuapp.com/" target="_blank" class="underline hover:text-generic-blue">visitor log.</a></p>
             <div class="flex">
               <p>Sign your masterpiece:</p>
               <input id="sketch_artist" type="text" placeholder="your name" required="required" minlength="1" maxlength="15" class=" border-b-2 mx-4 pl-2 w-36">
@@ -346,7 +348,7 @@
       <!-- Contact -->
       <section id="contact" class="flex flex-col items-center mt-96">
 
-        <img src="/assets/home/lost-wallet-text.png" class="w-2/3 pointer-events-none" alt="Lost wallet filled with $$$. If found email:">
+        <img src="/assets/home/lost-wallet-text.png" class="w-2/3 pointer-events-none " alt="Lost wallet filled with $$$. If found email:">
         <a href="mailto:jdegrootlutzner@gmail.com"><img src="/assets/home/my-email.png" class="mt-6 mb-2 w-11/12 border-2 px-4 py-6 border-white hover:border-generic-blue" alt="jdegrootlutzner.com"></a>
         <div class="grid grid-cols-12">
           <img src="/assets/home/wallet.png" class="col-span-7 pointer-events-none" alt="Photo of a wallet filled with lots of money">
@@ -524,6 +526,8 @@
 
     function savePhoto(){
       // preventDefault();
+      document.getElementById('saveIcon').classList.remove('animate-opacity');
+      document.getElementById('saveIcon').classList.add('animate-spin');
       var f = new FormData();
       var artistName = document.getElementById('sketch_artist').value;
       f.append('sketch[artist]', artistName);
@@ -540,11 +544,16 @@
       .catch(error => {
         console.error('Error:', error);
       });
-      window.open('https://jdegrootlutzner.herokuapp.com/','_blank');
+      
       document.getElementById('close_form').click();
-      document.getElementById('saveIcon').classList.toggle('hidden');
-
+      setTimeout( openNewPage, 1000);
           }
+
+        function openNewPage(){
+          window.open('https://jdegrootlutzner.herokuapp.com/','_blank');
+          document.getElementById('saveIcon').classList.toggle('hidden');
+        }
+
   function closeForm(e) {
     if(document.getElementById('close_form').contains(event.target) |
       !document.getElementById('sketch_form').contains(event.target)){
